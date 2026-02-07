@@ -64,7 +64,7 @@ export default function Navigation() {
               className="flex items-center gap-3"
             >
               <img 
-                src="/logo.svg" 
+                src="./logo.svg" 
                 alt="宸哲铝业" 
                 className={`w-10 h-10 rounded-lg transition-colors duration-300 ${
                   isScrolled ? '' : 'drop-shadow-lg'

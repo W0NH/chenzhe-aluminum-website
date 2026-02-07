@@ -58,7 +58,7 @@ export default function Footer() {
           >
             <div className="flex items-center gap-3 mb-6">
               <img 
-                src="/logo.svg" 
+                src="./logo.svg" 
                 alt="宸哲铝业" 
                 className="w-12 h-12 rounded-xl"
               />
