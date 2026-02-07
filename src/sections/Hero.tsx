@@ -49,7 +49,7 @@ export default function Hero() {
         style={{ willChange: 'transform' }}
       >
         <img
-          src="/images/hero-machine.jpg"
+          src="./images/hero-machine.jpg"
           alt="铝箔加工设备"
           className="w-full h-full object-cover"
         />

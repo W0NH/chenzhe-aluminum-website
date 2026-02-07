@@ -15,21 +15,21 @@ const advantages: Advantage[] = [
     title: '尖端技术',
     subtitle: 'Advanced Technology',
     description: '配备最新CNC数控机床和自动化生产线，实现高精度、高效率的铝箔加工。我们持续投资研发，保持技术领先地位。',
-    image: '/images/advantage-1.jpg',
+    image: './images/advantage-1.jpg',
   },
   {
     icon: ShieldCheck,
     title: '品质保证',
     subtitle: 'Quality Assurance',
     description: 'ISO 9001质量管理体系认证，从原材料采购到成品出厂，每个环节都有严格的质量控制，确保产品符合国际标准。',
-    image: '/images/advantage-2.jpg',
+    image: './images/advantage-2.jpg',
   },
   {
     icon: Zap,
     title: '快速交付',
     subtitle: 'Fast Delivery',
     description: '行业领先的周转时间，完善的供应链管理和生产调度系统，确保订单准时交付，满足客户紧急需求。',
-    image: '/images/advantage-3.jpg',
+    image: './images/advantage-3.jpg',
   },
 ];
 

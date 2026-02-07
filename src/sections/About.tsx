@@ -134,7 +134,7 @@ export default function About() {
               }}
             >
               <img
-                src="/images/about-1.jpg"
+                src="./images/about-1.jpg"
                 alt="铝箔卷材存储"
                 className="w-full h-full object-cover"
               />
@@ -153,7 +153,7 @@ export default function About() {
               }}
             >
               <img
-                src="/images/about-2.jpg"
+                src="./images/about-2.jpg"
                 alt="铝箔加工生产线"
                 className="w-full h-full object-cover"
               />
