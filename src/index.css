@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@100;300;400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 11%;
+    --primary: 205 100% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 97%;
+    --secondary-foreground: 0 0% 11%;
+    --muted: 0 0% 91%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 205 100% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 83%;
+    --input: 0 0% 83%;
+    --ring: 205 100% 47%;
+    --radius: 0.5rem;
+    
+    --brand-blue: #008CF0;
+    --brand-light-gray: #F7F7F7;
+    --brand-dark: #1D1D1D;
+    --brand-text-gray: #8B8B8B;
+    --brand-border: #D3D3D3;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Lato', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer utilities {
+  .precision-out {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fluid-motion {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--brand-light-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-text-gray);
+}
+
+/* Animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 140, 240, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 140, 240, 0.5);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Liquid fill button effect */
+.liquid-fill {
+  position: relative;
+  overflow: hidden;
+}
+.liquid-fill::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.liquid-fill:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Card 3D tilt effect */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Input floating label */
+.floating-input {
+  position: relative;
+}
+.floating-input input,
+.floating-input textarea {
+  border: none;
+  border-bottom: 2px solid var(--brand-border);
+  background: transparent;
+  padding: 12px 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.floating-input input:focus,
+.floating-input textarea:focus {
+  border-color: var(--brand-blue);
+}
+.floating-input label {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  color: var(--brand-text-gray);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.floating-input input:focus + label,
+.floating-input input:not(:placeholder-shown) + label,
+.floating-input textarea:focus + label,
+.floating-input textarea:not(:placeholder-shown) + label {
+  top: -12px;
+  font-size: 12px;
+  color: var(--brand-blue);
+}
+
+/* Clip path reveal animation */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  animation: clip-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes clip-reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
